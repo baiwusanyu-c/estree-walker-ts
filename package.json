@@ -3,7 +3,7 @@
   "description": "",
   "private": false,
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "packageManager": "pnpm@6.32.4",
   "keywords": [],
   "license": "MIT",
@@ -42,12 +42,8 @@
     "test:update": "vitest -u",
     "test:coverage": "vitest --coverage"
   },
-  "peerDependencies": {
-
-  },
-  "dependencies": {
-
-  },
+  "peerDependencies": {},
+  "dependencies": {},
   "devDependencies": {
     "@baiwusanyu/eslint-config": "^1.0.12",
     "@estree-walker-ts/build": "workspace:*",
