@@ -2,7 +2,6 @@
 import type { Node } from './types/index'
 
 export declare type Parent = Node
-
 declare const replace: (node: Node) => void
 declare const skip: () => void
 declare const remove: () => void

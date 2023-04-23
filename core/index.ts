@@ -3,7 +3,7 @@ import { AsyncWalker } from './async'
 import type { SyncHandler } from './sync'
 import type { AsyncHandler } from './async'
 import type { Node } from './types/index'
-
+export type { Node } from './types/index'
 /**
  * @param {Node} ast
  * @param {{
