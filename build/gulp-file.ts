@@ -1,7 +1,7 @@
 import * as path from 'path'
 import { series } from 'gulp'
 import fs, { copySync } from 'fs-extra'
-import pkg from '../../package.json'
+import pkg from '../package.json'
 import { run } from './utils'
 import { parallelTask } from './rewirte-path'
 const distRoot = path.resolve(process.cwd(), '../dist')
@@ -30,14 +30,27 @@ const moveReadMeToRootDist = async() => {
 
 export default series(
   ...parallelTask(),
+  // 移动dist
+  async() => {
+    const res = await moveDistToRoot()
+    return res
+  },
+
   // 移动 package.json 到 dist
   async() => {
     const res = await movePkgToRootDist()
     return res
   },
+
   // 移动 readme 到 dist
-  /* async() => {
+  async() => {
     const res = await moveReadMeToRootDist()
     return res
-  } */
+  },
+
+  // 删build目录下dist
+  async() => {
+    const res = await run('pnpm run --filter @estree-walker-ts/build clean')
+    return res
+  },
 )

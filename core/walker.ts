@@ -1,13 +1,22 @@
-/**
- * @typedef { import('estree').Node} Node
- * @typedef {{
- *   skip: () => void;
- *   remove: () => void;
- *   replace: (node: Node) => void;
- * }} WalkerContext
- */
 
+import type { Node } from './types/index'
+
+export declare type Parent = Node
+
+declare const replace: (node: Node) => void
+declare const skip: () => void
+declare const remove: () => void
+
+declare interface walkerCtx {
+  replace: typeof replace
+  skip: typeof skip
+  remove: typeof remove
+}
 export class WalkerBase {
+  protected should_skip: boolean
+  protected should_remove: boolean
+  protected replacement: Node | null
+  protected context: walkerCtx
   constructor() {
     /** @type {boolean} */
     this.should_skip = false
@@ -26,35 +35,30 @@ export class WalkerBase {
     }
   }
 
-  /**
-   * @template {Node} Parent
-   * @param {Parent | null | undefined} parent
-   * @param {keyof Parent | null | undefined} prop
-   * @param {number | null | undefined} index
-   * @param {Node} node
-   */
-  replace(parent, prop, index, node) {
+  replace(
+    parent: Parent | null | undefined,
+    prop: (keyof Parent) | null | undefined,
+    index: number | null | undefined,
+    node: Node) {
     if (parent && prop) {
       if (index != null) {
-        /** @type {Array<Node>} */ (parent[prop])[index] = node
+        /** @type {Array<Node>} */ ((parent[prop]) as unknown as Node[])[index] = node
       } else {
-        /** @type {Node} */ (parent[prop]) = node
+        /** @type {Node} */ ((parent[prop]) as unknown as Node) = node
       }
     }
   }
 
-  /**
-   * @template {Node} Parent
-   * @param {Parent | null | undefined} parent
-   * @param {keyof Parent | null | undefined} prop
-   * @param {number | null | undefined} index
-   */
-  remove(parent, prop, index) {
+  remove(
+    parent: Parent | null | undefined,
+    prop: (keyof Parent) | null | undefined,
+    index: number | null | undefined,
+  ) {
     if (parent && prop) {
       if (index !== null && index !== undefined) {
-        /** @type {Array<Node>} */ (parent[prop]).splice(index, 1)
+        /** @type {Array<Node>} */ ((parent[prop]) as unknown as Node[]).splice(index, 1)
       } else {
-        delete parent[prop]
+        delete (parent[prop])
       }
     }
   }

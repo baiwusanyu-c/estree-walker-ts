@@ -16,7 +16,7 @@ const configOptions = []
 
 if (buildMode === 'prod') {
   entry = {
-    index: './index.ts',
+    index: '../core/index.ts',
   }
   for (const entryKey in entry) {
     const config = JSON.parse(JSON.stringify(baseConfig))
@@ -30,7 +30,7 @@ if (buildMode === 'prod') {
 
 if (buildMode === 'dev') {
   entry = {
-    index: '../index.ts',
+    index: '../core/index.ts',
   }
   for (const entryKey in entry) {
     const config = JSON.parse(JSON.stringify(baseConfig))

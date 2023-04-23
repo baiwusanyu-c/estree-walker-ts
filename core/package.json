@@ -2,15 +2,12 @@
   "name": "@estree-walker-ts/core",
   "description": "",
   "type": "module",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "keywords": [],
   "license": "ISC",
   "author": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "cross-env BUILD_MODE=dev tsup-node --config build/index.ts",
-    "build": "cross-env BUILD_MODE=prod tsup-node --config build/index.ts && pnpm run rewrite",
-    "rewrite": "gulp -require sucrase/register/ts -f build/gulp-file.ts",
-    "clean": "rimraf dist"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

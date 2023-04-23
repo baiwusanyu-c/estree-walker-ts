@@ -5,12 +5,18 @@ importers:
   .:
     specifiers:
       '@baiwusanyu/eslint-config': ^1.0.12
+      '@estree-walker-ts/build': workspace:*
+      '@estree-walker-ts/core': workspace:*
+      '@estree-walker-ts/play': workspace:*
       '@rollup/plugin-node-resolve': ^15.0.2
+      '@types/debug': ^4.1.7
       '@types/fs-extra': ^11.0.1
+      '@types/gulp': ^4.0.10
       '@types/node': ^18.16.0
       '@vitest/coverage-c8': ^0.30.1
       '@vitest/ui': ^0.30.1
       bumpp: ^9.1.0
+      chalk: ^4.1.2
       cross-env: ^7.0.3
       eslint: ^8.39.0
       esno: ^0.16.3
@@ -22,17 +28,24 @@ importers:
       rollup-plugin-dts: ^5.3.0
       rollup-plugin-typescript2: ^0.34.1
       simple-git-hooks: ^2.8.1
+      sucrase: ^3.21.0
       tsup: ^6.7.0
       typescript: ^5.0.4
       vitest: ^0.30.1
     devDependencies:
       '@baiwusanyu/eslint-config': 1.0.12_iacogk7kkaymxepzhgcbytyi7q
+      '@estree-walker-ts/build': link:build
+      '@estree-walker-ts/core': link:core
+      '@estree-walker-ts/play': link:play
       '@rollup/plugin-node-resolve': 15.0.2_rollup@3.20.7
+      '@types/debug': 4.1.7
       '@types/fs-extra': 11.0.1
+      '@types/gulp': 4.0.10
       '@types/node': 18.16.0
       '@vitest/coverage-c8': 0.30.1_vitest@0.30.1
       '@vitest/ui': 0.30.1
       bumpp: 9.1.0
+      chalk: 4.1.2
       cross-env: 7.0.3
       eslint: 8.39.0
       esno: 0.16.3
@@ -44,9 +57,16 @@ importers:
       rollup-plugin-dts: 5.3.0_lhrcpyem2zu5b6sfj3l3zvso3q
       rollup-plugin-typescript2: 0.34.1_lhrcpyem2zu5b6sfj3l3zvso3q
       simple-git-hooks: 2.8.1
+      sucrase: 3.25.0
       tsup: 6.7.0_typescript@5.0.4
       typescript: 5.0.4
       vitest: 0.30.1_6kqxyppp63ueahn2lmwmvatjp4
+
+  build:
+    specifiers:
+      '@estree-walker-ts/core': workspace:*
+    dependencies:
+      '@estree-walker-ts/core': link:../core
 
   core:
     specifiers: {}
@@ -562,8 +582,18 @@ packages:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
     dev: true
 
+  /@types/debug/4.1.7:
+    resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
+    dependencies:
+      '@types/ms': 0.7.31
+    dev: true
+
   /@types/estree/1.0.1:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
+    dev: true
+
+  /@types/expect/1.20.4:
+    resolution: {integrity: sha512-Q5Vn3yjTDyCMV50TB6VRIbQNxSE4OmZR86VSbGaNpfUolm0iePBB4KdEEHmxoY5sT2+2DIvXW0rvMDP2nHZ4Mg==}
     dev: true
 
   /@types/fs-extra/11.0.1:
@@ -571,6 +601,35 @@ packages:
     dependencies:
       '@types/jsonfile': 6.1.1
       '@types/node': 18.16.0
+    dev: true
+
+  /@types/glob-stream/6.1.2:
+    resolution: {integrity: sha512-EIJSLP/nGyMzD8aFhJljO9nv3EmQ10xk1+dl+i15AITrcWLhhTTPmNMFK0TWcGRvVYuSlA1VPi1fe8tbgDsUhg==}
+    dependencies:
+      '@types/glob': 7.2.0
+      '@types/node': 18.16.0
+    dev: true
+
+  /@types/glob/7.2.0:
+    resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
+    dependencies:
+      '@types/minimatch': 5.1.2
+      '@types/node': 18.16.0
+    dev: true
+
+  /@types/glob/8.1.0:
+    resolution: {integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w==}
+    dependencies:
+      '@types/minimatch': 5.1.2
+      '@types/node': 18.16.0
+    dev: true
+
+  /@types/gulp/4.0.10:
+    resolution: {integrity: sha512-spgZHJFqiEJGwqGlf7T/k4nkBpBcLgP7T0EfN6G2vvnhUfvd4uO1h8RwpXOE8x/54DVYUs1XCAtBHkX/R3axAQ==}
+    dependencies:
+      '@types/undertaker': 1.2.8
+      '@types/vinyl-fs': 3.0.1
+      chokidar: 3.5.3
     dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
@@ -597,6 +656,14 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
+  /@types/minimatch/5.1.2:
+    resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
+    dev: true
+
+  /@types/ms/0.7.31:
+    resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
+    dev: true
+
   /@types/node/18.16.0:
     resolution: {integrity: sha512-BsAaKhB+7X+H4GnSjGhJG9Qi8Tw+inU9nJDwmD5CgOmBLEI6ArdhikpLX7DjbjDRDTbqZzU2LSQNZg8WGPiSZQ==}
     dev: true
@@ -609,12 +676,47 @@ packages:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
     dev: true
 
+  /@types/rimraf/2.0.5:
+    resolution: {integrity: sha512-YyP+VfeaqAyFmXoTh3HChxOQMyjByRMsHU7kc5KOJkSlXudhMhQIALbYV7rHh/l8d2lX3VUQzprrcAgWdRuU8g==}
+    dependencies:
+      '@types/glob': 8.1.0
+      '@types/node': 18.16.0
+    dev: true
+
   /@types/semver/7.3.13:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
 
+  /@types/undertaker-registry/1.0.1:
+    resolution: {integrity: sha512-Z4TYuEKn9+RbNVk1Ll2SS4x1JeLHecolIbM/a8gveaHsW0Hr+RQMraZACwTO2VD7JvepgA6UO1A1VrbktQrIbQ==}
+    dev: true
+
+  /@types/undertaker/1.2.8:
+    resolution: {integrity: sha512-gW3PRqCHYpo45XFQHJBhch7L6hytPsIe0QeLujlnFsjHPnXLhJcPdN6a9368d7aIQgH2I/dUTPFBlGeSNA3qOg==}
+    dependencies:
+      '@types/node': 18.16.0
+      '@types/undertaker-registry': 1.0.1
+      async-done: 1.3.2
+    dev: true
+
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
+    dev: true
+
+  /@types/vinyl-fs/3.0.1:
+    resolution: {integrity: sha512-me2Gcxw23pZp62oqPoiTDDMz/txEmtEZzXM/D/VTr+xUX4LiNA+nQPs38SSPu5KHnsaEER4HEtzWU5qJRXigfA==}
+    dependencies:
+      '@types/glob-stream': 6.1.2
+      '@types/node': 18.16.0
+      '@types/rimraf': 2.0.5
+      '@types/vinyl': 2.0.7
+    dev: true
+
+  /@types/vinyl/2.0.7:
+    resolution: {integrity: sha512-4UqPv+2567NhMQuMLdKAyK4yzrfCqwaTt6bLhHEs8PFcxbHILsrxaY63n4wgE/BRLDWDQeI+WcTmkXKExh9hQg==}
+    dependencies:
+      '@types/expect': 1.20.4
+      '@types/node': 18.16.0
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.59.0_chh3ljgpke5ydgcjpmkmu4hz5q:

@@ -1,46 +1,34 @@
-import { WalkerBase } from './walker.js'
+import { WalkerBase } from './walker'
+import { isNode } from './utils'
+import type { Parent } from './walker'
+import type { Node } from './types/index'
 
-/**
- * @typedef { import('estree').Node} Node
- * @typedef { import('./walker.js').WalkerContext} WalkerContext
- * @typedef {(
- *    this: WalkerContext,
- *    node: Node,
- *    parent: Node | null,
- *    key: string | number | symbol | null | undefined,
- *    index: number | null | undefined
- * ) => void} SyncHandler
- */
+export type SyncHandler = (
+  node: Node,
+  parent: Parent | null,
+  prop?: keyof Parent,
+  index?: number | null
+) => void
 
 export class SyncWalker extends WalkerBase {
-  /**
-   *
-   * @param {SyncHandler} [enter]
-   * @param {SyncHandler} [leave]
-   */
-  constructor(enter, leave) {
+  private enter: SyncHandler | undefined
+  private leave: SyncHandler | undefined
+  constructor(
+    enter: SyncHandler | undefined,
+    leave: SyncHandler | undefined,
+  ) {
     super()
-
-    /** @type {boolean} */
     this.should_skip = false
-
-    /** @type {boolean} */
     this.should_remove = false
-
-    /** @type {Node | null} */
     this.replacement = null
-
-    /** @type {WalkerContext} */
     this.context = {
       skip: () => (this.should_skip = true),
       remove: () => (this.should_remove = true),
       replace: node => (this.replacement = node),
     }
 
-    /** @type {SyncHandler | undefined} */
     this.enter = enter
 
-    /** @type {SyncHandler | undefined} */
     this.leave = leave
   }
 
@@ -50,9 +38,12 @@ export class SyncWalker extends WalkerBase {
    * @param {Parent | null} parent
    * @param {keyof Parent} [prop]
    * @param {number | null} [index]
-   * @returns {Node | null}
    */
-  visit(node, parent, prop, index) {
+  visit(
+    node: Node,
+    parent: Parent | null,
+    prop?: keyof Parent,
+    index?: number | null) {
     if (node) {
       if (this.enter) {
         const _should_skip = this.should_skip
@@ -65,7 +56,7 @@ export class SyncWalker extends WalkerBase {
         this.enter.call(this.context, node, parent, prop, index)
 
         if (this.replacement) {
-          node = this.replacement
+          node = (this.replacement as Node)
           this.replace(parent, prop, index, node)
         }
 
@@ -83,27 +74,24 @@ export class SyncWalker extends WalkerBase {
         if (removed) return null
       }
 
-      /** @type {keyof Node} */
       let key
-
       for (key in node) {
-        /** @type {unknown} */
-        const value = node[key]
+        const value = node[key as keyof typeof node]
 
         if (value && typeof value === 'object') {
           if (Array.isArray(value)) {
-            const nodes = /** @type {Array<unknown>} */ (value)
+            const nodes = (value)
             for (let i = 0; i < nodes.length; i += 1) {
-              const item = nodes[i]
+              const item = nodes[i] as unknown as Node
               if (isNode(item)) {
-                if (!this.visit(item, node, key, i)) {
+                if (!this.visit(item as unknown as Node, node, (key as keyof typeof node), i)) {
                   // removed
                   i--
                 }
               }
             }
           } else if (isNode(value)) {
-            this.visit(value, node, key, null)
+            this.visit(value as unknown as Node, node, (key as keyof typeof node), null)
           }
         }
       }
@@ -117,7 +105,7 @@ export class SyncWalker extends WalkerBase {
         this.leave.call(this.context, node, parent, prop, index)
 
         if (this.replacement) {
-          node = this.replacement
+          node = (this.replacement as Node)
           this.replace(parent, prop, index, node)
         }
 
@@ -135,16 +123,4 @@ export class SyncWalker extends WalkerBase {
 
     return node
   }
-}
-
-/**
- * Ducktype a node.
- *
- * @param {unknown} value
- * @returns {value is Node}
- */
-export function isNode(value) {
-  return (
-    value !== null && typeof value === 'object' && 'type' in value && typeof value.type === 'string'
-  )
 }

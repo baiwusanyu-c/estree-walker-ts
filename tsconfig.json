@@ -16,6 +16,7 @@
   "include": [
     "core/**/*.ts",
     "play/**/*.ts",
+    "build/**/*.ts"
   ],
   // ts 排除的文件
   "exclude": [
