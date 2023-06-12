@@ -1,4 +1,3 @@
-
 import type { Node } from './types/index'
 
 export declare type Parent = Node
