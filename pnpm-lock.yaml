@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@babel/parser':
         specifier: ^7.22.5
-        version: 7.22.5
+        version: 7.22.7
       '@baiwusanyu/eslint-config':
         specifier: ^1.0.12
         version: 1.0.12(eslint@8.42.0)(typescript@5.1.3)
@@ -142,8 +142,8 @@ packages:
       js-tokens: 4.0.0
     dev: true
 
-  /@babel/parser@7.22.5:
-    resolution: {integrity: sha512-DFZMC9LJUG9PLOclRC32G63UXwzqS2koQC8dkx+PLdmt1xSePYpbT/NbsrJy8Q/muXz7o/h/d4A7Fuyixm559Q==}
+  /@babel/parser@7.22.7:
+    resolution: {integrity: sha512-7NF8pOkHP5o2vpmGgNGcfAeCvOYhGLyA3Z4eBQkT1RJlWu47n63bCs93QfJ2hIAFCil7L5P2IWhs1oToVgrL0Q==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
