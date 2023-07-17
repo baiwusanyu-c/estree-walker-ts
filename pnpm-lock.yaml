@@ -1341,7 +1341,7 @@ packages:
   /axobject-query@3.1.1:
     resolution: {integrity: sha512-goKlv8DZrK9hUh975fnHzhNIO4jUnFCfv/dszV5VwUGDFjI6vQ2VwoyjYjYNEbBE8AH87TduWP5uyDR1D+Iteg==}
     dependencies:
-      deep-equal: 2.2.1
+      deep-equal: 2.2.2
     dev: true
 
   /bach@1.2.0:
@@ -1974,8 +1974,8 @@ packages:
       type-detect: 4.0.8
     dev: true
 
-  /deep-equal@2.2.1:
-    resolution: {integrity: sha512-lKdkdV6EOGoVn65XaOsPdH4rMxTZOnmFyuIkMjM1i5HHCbfjC97dawgTAy0deYNfuqUqW+Q5VrVaQYtUpSd6yQ==}
+  /deep-equal@2.2.2:
+    resolution: {integrity: sha512-xjVyBf0w5vH0I42jdAZzOKVldmPgSulmiyPRywoyq7HXC9qdgo17kxJE+rdnif5Tz6+pIrpJI8dCpMNLIGkUiA==}
     dependencies:
       array-buffer-byte-length: 1.0.0
       call-bind: 1.0.2
