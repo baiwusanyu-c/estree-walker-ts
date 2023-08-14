@@ -78,8 +78,8 @@ importers:
         specifier: ^5.3.0
         version: 5.3.1(rollup@3.27.0)(typescript@5.1.6)
       rollup-plugin-typescript2:
-        specifier: ^0.34.1
-        version: 0.34.1(rollup@3.27.0)(typescript@5.1.6)
+        specifier: ^0.35.0
+        version: 0.35.0(rollup@3.27.0)(typescript@5.1.6)
       simple-git-hooks:
         specifier: ^2.8.1
         version: 2.9.0
@@ -5913,8 +5913,8 @@ packages:
       '@babel/code-frame': 7.22.5
     dev: true
 
-  /rollup-plugin-typescript2@0.34.1(rollup@3.27.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-P4cHLtGikESmqi1CA+tdMDUv8WbQV48mzPYt77TSTOPJpERyZ9TXdDgjSDix8Fkqce6soYz3+fa4lrC93IEkcw==}
+  /rollup-plugin-typescript2@0.35.0(rollup@3.27.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-szcIO9hPUx3PhQl91u4pfNAH2EKbtrXaES+m163xQVE5O1CC0ea6YZV/5woiDDW3CR9jF2CszPrKN+AFiND0bg==}
     peerDependencies:
       rollup: '>=1.26.3'
       typescript: '>=2.4.0'
