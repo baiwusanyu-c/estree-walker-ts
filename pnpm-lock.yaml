@@ -828,7 +828,7 @@ packages:
       deepmerge: 4.3.1
       is-builtin-module: 3.2.1
       is-module: 1.0.0
-      resolve: 1.22.2
+      resolve: 1.22.6
       rollup: 3.28.0
     dev: true
 
@@ -2639,8 +2639,8 @@ packages:
     resolution: {integrity: sha512-gozW2blMLJCeFpBwugLTGyvVjNoeo1knonXAcatC6bjPBZitotxdWf7Gimr25N4c0AAOo4eOUfaG82IJPDpqCA==}
     dependencies:
       debug: 3.2.7
-      is-core-module: 2.12.1
-      resolve: 1.22.2
+      is-core-module: 2.13.0
+      resolve: 1.22.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2659,7 +2659,7 @@ packages:
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.59.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.42.0)
       get-tsconfig: 4.6.2
       globby: 13.1.4
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       is-glob: 4.0.3
       synckit: 0.8.5
     transitivePeerDependencies:
@@ -2776,11 +2776,11 @@ packages:
       eslint-import-resolver-node: 0.3.7
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@5.59.9)(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.5)(eslint@8.42.0)
       has: 1.0.3
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.values: 1.1.6
-      resolve: 1.22.2
+      resolve: 1.22.6
       semver: 6.3.1
       tsconfig-paths: 3.14.2
     transitivePeerDependencies:
@@ -2849,9 +2849,9 @@ packages:
       eslint-plugin-es: 4.1.0(eslint@8.42.0)
       eslint-utils: 3.0.0(eslint@8.42.0)
       ignore: 5.2.4
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       minimatch: 3.1.2
-      resolve: 1.22.2
+      resolve: 1.22.6
       semver: 7.5.4
     dev: true
 
@@ -4068,8 +4068,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /is-core-module@2.12.1:
-    resolution: {integrity: sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==}
+  /is-core-module@2.13.0:
+    resolution: {integrity: sha512-Z7dk6Qo8pOCp3l4tsX2C5ZVas4V+UxwQodwZhLopL91TX8UyyHEXafPcyoeeWuLrwzHcr3igO78wNLwHJHsMCQ==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -4618,7 +4618,7 @@ packages:
       is-plain-object: 2.0.4
       object.map: 1.0.1
       rechoir: 0.6.2
-      resolve: 1.22.2
+      resolve: 1.22.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4809,7 +4809,7 @@ packages:
     dependencies:
       findup-sync: 2.0.0
       micromatch: 3.1.10
-      resolve: 1.22.2
+      resolve: 1.22.6
       stack-trace: 0.0.10
     transitivePeerDependencies:
       - supports-color
@@ -5056,7 +5056,7 @@ packages:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
       hosted-git-info: 2.8.9
-      resolve: 1.22.2
+      resolve: 1.22.6
       semver: 5.7.2
       validate-npm-package-license: 3.0.4
     dev: true
@@ -5728,7 +5728,7 @@ packages:
     resolution: {integrity: sha512-HFM8rkZ+i3zrV+4LQjwQ0W+ez98pApMGM3HUrN04j3CqzPOzl9nmP15Y8YXNm8QHGv/eacOVEjqhmWpkRV0NAw==}
     engines: {node: '>= 0.10'}
     dependencies:
-      resolve: 1.22.2
+      resolve: 1.22.6
     dev: true
 
   /regenerator-runtime@0.14.0:
@@ -5861,11 +5861,11 @@ packages:
     deprecated: https://github.com/lydell/resolve-url#deprecated
     dev: true
 
-  /resolve@1.22.2:
-    resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
+  /resolve@1.22.6:
+    resolution: {integrity: sha512-njhxM7mV12JfufShqGy3Rz8j11RPdLy4xi15UurGJeoHLfJpVXKdh3ueuOqbYUcDZnffr6X739JBo5LzyahEsw==}
     hasBin: true
     dependencies:
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
@@ -5874,7 +5874,7 @@ packages:
     resolution: {integrity: sha512-iMDbmAWtfU+MHpxt/I5iWI7cY6YVEZUQ3MBgPQ++XD1PELuJHIl82xBmObyP2KyQmkNB2dsqF7seoQQiAn5yDQ==}
     hasBin: true
     dependencies:
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
