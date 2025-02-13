@@ -14,7 +14,7 @@ export type { Node } from './types/index'
  */
 export function walk(
   ast: Node,
-  { enter, leave }: { enter: SyncHandler, leave: SyncHandler },
+  { enter, leave }: { enter?: SyncHandler | undefined, leave?: SyncHandler | undefined },
 ) {
   const instance = new SyncWalker(enter, leave)
   return instance.visit(ast, null)
@@ -30,7 +30,7 @@ export function walk(
  */
 export async function asyncWalk(
   ast: Node,
-  { enter, leave }: { enter: AsyncHandler, leave: AsyncHandler },
+  { enter, leave }: { enter?: AsyncHandler | undefined, leave?: AsyncHandler | undefined },
 ) {
   const instance = new AsyncWalker(enter, leave)
   const res = await instance.visit(ast, null)
