@@ -9,7 +9,13 @@ on:
     branches:
       - master
 
-  workflow_dispatch:
+  workflow_dispatch:  # 允许手动触发，并可以指定分支
+    inputs:
+      branch:
+        description: 'Branch to release from'
+        required: true
+        default: 'main'  # 默认使用 main 分支
+        type: string
 
 jobs:
   unit-test_and_lint:
@@ -22,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20.x
           cache: pnpm
 
       - name: Install
